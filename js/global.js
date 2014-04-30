@@ -137,11 +137,21 @@ $(function(){
     }
     
     var ringNum = taxonomy['text'].length - 1;
-    var groupNums = $('.wholeText').length;
+    // var groupNums = $('.wholeText').length;
+        var groupNums = 1;
     
-    for(var groupN = 0; groupN <= groupNums; groupN++ ){
-		
-		var bodyText = $('#wholeText'+ groupN).text();
+
+	    var bodyText;	
+    for(var groupN = 1; groupN <= groupNums; groupN++ ){
+		// var bodyText = $.('#wholeText'+ groupN).text();
+                $.get('/data/module5ChatAnalysis/group1.csv').then(function(text, status, xhr) {
+                    bodyText = text;
+                    console.log(bodyText);
+                });
+//                 $.get("xx.xml", function(data) {
+//     xml = data;
+// });
+console.log(bodyText);
 		var bodySize = parseInt(bodyText.length) / 470;
 		console.log(bodySize);		
 		
